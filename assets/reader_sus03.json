@@ -1,0 +1,59 @@
+{
+ "total": 15,
+ "pages": [
+  {
+   "page": 1,
+   "img": "sus03_p01.jpg",
+   "bubbles": [
+    {
+     "t": "Fiete und Lotte machen Urlaub in einem kleinen weißen Haus mit Garten in Spanien.",
+     "c": "#BFE9FF"
+    },
+    {
+     "t": "Die Sonne scheint hell, der Wind weht leise, und Paco rennt durch das Gras.",
+     "c": "#D8F2BE"
+    },
+    {
+     "t": "Er jagt Blättern und Schatten hinterher.",
+     "c": "#FFD8B8"
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "img": "sus03_p06.jpg",
+   "bubbles": [
+    {
+     "t": "Unter einem Weinstock sitzt ein alter Mann mit großem Strohhut. Neben ihm sitzt ein Junge. Der Mann lächelt. „Ah, wir haben Besuch!“ Fiete tritt näher. „Ich bin Fiete. Und das sind Lotte und Paco.“ Der Junge hebt kurz die Hand. „Ich heiße Nico“, sagt er schüchtern.",
+     "c": "#BFE9FF"
+    },
+    {
+     "t": "Fiete zeigt auf die silberne Blume, die sich dreht. „Was ist das?“ Der alte Mann hebt einen kleinen Ventilator hoch. Oben sitzt ein glänzendes, flaches Stück. „Das ist ein Paneel“, sagt er.",
+     "c": "#D8F2BE"
+    },
+    {
+     "t": "„Es fängt Sonnenlicht ein und macht daraus Strom. Ganz ohne Kabel und ganz ohne Batterien.“ „Echt?“, fragt Lotte. Der alte Mann nickt. „Passt auf.“",
+     "c": "#FFD8B8"
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "img": "sus03_p15.jpg",
+   "bubbles": [
+    {
+     "t": "Am Nachmittag ist der Keks im selbstgebauten Ofen warm und weich. Paco schnuppert daran und kommt mit der Nase immer näher. „Paco!“, ruft Lotte lachend. Die Olivenbäume rauschen leise, und der Ventilator dreht sich in der Sonne.",
+     "c": "#FFE7A8"
+    },
+    {
+     "t": "Da kommt Mama in den Garten. „Na, zeigt mal, was ihr gebaut habt!\" Fiete, Lotte und Nico laufen stolz zu ihr hin und erklären alles. Mama klatscht begeistert in die Hände.",
+     "c": "#BFE9FF"
+    },
+    {
+     "t": "„Was für tolle Erfinder ihr seid! So lernt ihr, wie Sonne und Wind uns helfen können.\" Die Kinder lachen und basteln weiter.",
+     "c": "#D8F2BE"
+    }
+   ]
+  }
+ ]
+}
