@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Aha Kids App im Markendesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@700&family=Inter:wght@400;600&family=Nunito:wght@800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ───────── page ───────── */
+:root{--forest:#173F35;--cream:#FFF9EC;--mist:#EDF5EF;--leaf:#3F8F62;--sprout:#A8D66D;--sun:#F7C948;--orange:#FF981C;--coral:#F27C67;--sky:#68BCE3;--ink:#17322D}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--cream);color:var(--forest);font:15px/1.5 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.page{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1.pt{font:800 34px/1.1 Nunito,sans-serif;margin:0 0 6px}
+.meta{font:600 12.5px/1.4 Inter,sans-serif;color:rgba(23,63,53,.62);margin:0 0 12px}
+.intro{max-width:760px;margin:0 0 20px;color:var(--ink)}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:0 0 18px}
+.seg{display:inline-flex;background:var(--mist);border-radius:999px;padding:4px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;color:var(--forest);font:600 13.5px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--forest);color:var(--cream)}
+.seg button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.which{display:none}
+.pair{display:flex;gap:36px;justify-content:center;align-items:flex-start}
+.col{display:flex;flex-direction:column;align-items:center;gap:10px}
+.col>h2{font:800 22px/1 Nunito,sans-serif;margin:0}
+.col>p{margin:0;font:600 12px/1.3 Inter,sans-serif;color:rgba(23,63,53,.62);text-align:center;max-width:390px}
+.fw{position:relative}
+.frame{width:417px;height:876px;border-radius:62px;background:#0d0d0d;padding:12px;box-shadow:0 30px 60px -20px rgba(23,63,53,.35),0 0 0 1.5px #3a3a3a inset;transform-origin:top left;position:absolute;left:0;top:0}
+.sec{margin:46px auto 0;max-width:920px}
+.sec h3{font:800 24px/1.15 Nunito,sans-serif;margin:0 0 6px}
+.sec .lead{margin:0 0 16px;color:var(--ink)}
+.chg{display:grid;grid-template-columns:1fr;gap:12px;padding:0;margin:0;list-style:none}
+.chg li{background:#fff;border:1px solid rgba(23,63,53,.08);border-radius:18px;padding:14px 16px}
+.chg b{font:800 16px/1.3 Nunito,sans-serif;display:block;margin-bottom:2px}
+.chg .code{display:block;margin-top:6px;font:600 12px/1.45 Inter,sans-serif;color:rgba(23,63,53,.62)}
+.chg code,.tbl code{font:600 11.5px/1 ui-monospace,Consolas,monospace;background:var(--mist);padding:2px 5px;border-radius:5px;color:var(--forest)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid rgba(23,63,53,.08);border-radius:18px;overflow:hidden}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid rgba(23,63,53,.07);font-size:14px}
+.tbl th{font:800 14px/1.2 Nunito,sans-serif;background:var(--mist)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{color:rgba(23,50,45,.66);width:46%}
+.keep{columns:2;column-gap:28px;margin:0;padding-left:18px}
+.keep li{margin:0 0 6px;break-inside:avoid}
+.foot{margin-top:28px;font-size:12.5px;color:rgba(23,63,53,.62)}
+@media (max-width:900px){
+  .which{display:inline-flex}
+  .pair[data-show=today] .col.brand,.pair[data-show=brand] .col.today{display:none}
+  .keep{columns:1}
+}
+@media (max-width:520px){.page{padding:20px 16px 48px}h1.pt{font-size:28px}}
+
+/* ───────── phone ───────── */
+.app{position:relative;width:393px;height:852px;border-radius:50px;overflow:hidden;isolation:isolate;-webkit-font-smoothing:antialiased;font-family:Inter,sans-serif;user-select:none}
+.app *{box-sizing:border-box}
+:where(.app) button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
+.bgl{position:absolute;inset:0;z-index:0;overflow:hidden}
+.scr{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;z-index:1;scrollbar-width:none}
+.scr::-webkit-scrollbar{display:none}
+.chrome{position:absolute;inset:0;pointer-events:none;z-index:40}
+.status{position:absolute;left:0;right:0;top:0;height:54px;display:flex;justify-content:space-between;align-items:center;padding:6px 34px 0 50px;font:600 17px/1 -apple-system,"SF Pro Text",Inter,sans-serif;letter-spacing:-.2px}
+.status .r{display:flex;gap:6px;align-items:center}
+.island{position:absolute;top:11px;left:50%;width:124px;height:36px;margin-left:-62px;border-radius:20px;background:#000}
+.homeind{position:absolute;bottom:8px;left:50%;width:136px;height:5px;margin-left:-68px;border-radius:3px}
+.ic{display:block;flex:none}
+
+/* theme tokens */
+.today{--title:#103830;--ink:#000;--sub:rgba(0,0,0,.72);--ter:rgba(0,0,0,.66);--card:rgba(255,255,255,.56);--cardb:rgba(255,255,255,.5);--cards:0 6px 16px rgba(0,0,0,.07);--acc:#103830;--tabbg:rgba(255,255,255,.30);--tabb:rgba(255,255,255,.46);--tabsel:rgba(255,255,255,.68);--tabfg:rgba(0,0,0,.80);--tabselfg:#103830;--tabsh:0 7px 16px rgba(0,0,0,.12);--pfink:#103830;--pfmut:#70806F;--pfacc:#245E4A;--pfbg:#F5F5ED;--stat:#000;--well:rgba(0,0,0,.045)}
+.today.dark{--title:rgba(255,255,255,.92);--ink:rgba(255,255,255,.94);--sub:rgba(255,255,255,.78);--ter:rgba(255,255,255,.64);--card:rgba(38,38,40,.52);--cardb:rgba(255,255,255,.16);--cards:0 6px 16px rgba(0,0,0,.16);--acc:#D8F5EB;--tabbg:rgba(0,0,0,.30);--tabb:rgba(255,255,255,.22);--tabsel:rgba(255,255,255,.18);--tabfg:rgba(255,255,255,.88);--tabselfg:rgba(255,255,255,.96);--tabsh:0 7px 16px rgba(0,0,0,.22);--pfink:#E0EBD6;--pfmut:#A6B5A6;--pfacc:#91B582;--pfbg:#142920;--stat:#fff;--well:rgba(255,255,255,.08)}
+.brand{--title:#173F35;--ink:#17322D;--sub:rgba(23,50,45,.76);--ter:rgba(23,50,45,.62);--card:#FFF9EC;--cardb:rgba(23,63,53,.08);--cards:0 6px 18px rgba(23,63,53,.08);--acc:#173F35;--tabbg:#FFF9EC;--tabb:rgba(23,63,53,.08);--tabsel:#173F35;--tabfg:rgba(23,63,53,.70);--tabselfg:#FFF9EC;--tabsh:0 8px 20px rgba(23,63,53,.14);--pfink:#173F35;--pfmut:rgba(23,50,45,.62);--pfacc:#3F8F62;--pfbg:#EDF5EF;--stat:#173F35;--well:#EDF5EF;--band:#FFF9EC;--bandink:#173F35}
+.brand.dark{--title:#FFF9EC;--ink:#FFF9EC;--sub:rgba(255,249,236,.78);--ter:rgba(255,249,236,.62);--card:#1F4A3F;--cardb:rgba(255,249,236,.10);--cards:0 6px 18px rgba(0,0,0,.22);--acc:#FFF9EC;--tabbg:#0F2C25;--tabb:rgba(255,249,236,.12);--tabsel:#FFF9EC;--tabfg:rgba(255,249,236,.80);--tabselfg:#173F35;--tabsh:0 8px 20px rgba(0,0,0,.30);--pfink:#FFF9EC;--pfmut:rgba(255,249,236,.64);--pfacc:#A8D66D;--pfbg:#173F35;--stat:#FFF9EC;--well:rgba(255,249,236,.08)}
+.status{color:var(--stat)}
+.today{--knock:#EEF4EE}.today.dark{--knock:#3B403D}.brand{--knock:#173F35}.brand.dark{--knock:#FFF9EC}
+.homeind{background:var(--stat);opacity:.9}
+
+/* backgrounds */
+.today .bgl{background:#cfe6d6 url(assets/bg_today_light.jpg) center/cover}
+.today.dark .bgl{background:#0b1a16 url(assets/bg_today_dark.jpg) center/cover}
+.today .bgl::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,230,209,.10),rgba(255,255,255,.08)),rgba(255,255,255,.12)}
+.today.dark .bgl::after{background:linear-gradient(180deg,rgba(20,43,74,.14),rgba(0,0,0,.08)),rgba(0,0,0,.08)}
+.brand .bgl{background:#EDF5EF}
+.brand.dark .bgl{background:#173F35}
+.bgl svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* fonts: T = titles, B = body, S = labels (today = Quicksand everywhere, brand = Nunito + Inter) */
+.today .T{font-family:Quicksand,sans-serif;font-weight:700}
+.today .B{font-family:Quicksand,sans-serif;font-weight:500}
+.today .S{font-family:Quicksand,sans-serif;font-weight:600}
+.brand .T{font-family:Nunito,sans-serif;font-weight:800}
+.brand .B{font-family:Inter,sans-serif;font-weight:400}
+.brand .S{font-family:Inter,sans-serif;font-weight:600}
+/* profile already uses Nunito + Inter today */
+.PH{font-family:Nunito,sans-serif;font-weight:800}
+.PB{font-family:Inter,sans-serif;font-weight:400}
+.PS{font-family:Inter,sans-serif;font-weight:600}
+.AN{font-family:Andika,sans-serif;font-weight:700}
+
+/* menu card surface (MenuCardStyle) */
+.card{background:var(--card);border:1px solid var(--cardb);border-radius:28px;box-shadow:var(--cards)}
+.today .card{-webkit-backdrop-filter:blur(24px) saturate(1.6);backdrop-filter:blur(24px) saturate(1.6)}
+
+/* tab titles */
+.tabt{position:relative;display:inline-block;color:var(--title);font-size:34px;line-height:1.15;margin:0;white-space:nowrap}
+.tabt .ul{display:none}
+.brand .tabt .ul{display:block;position:absolute;left:-1px;right:-3px;bottom:-6px;height:11px;overflow:visible}
+.brand .tabt{font-size:33px}
+
+/* tab bar */
+.tabbar{position:absolute;left:12px;right:12px;bottom:30px;height:62px;border-radius:30px;z-index:30;background:var(--tabbg);border:1px solid var(--tabb);box-shadow:var(--tabsh);display:flex;padding:6px}
+.today .tabbar{-webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6)}
+.tabbar .pill{position:absolute;top:5px;height:50px;border-radius:21px;background:var(--tabsel);transition:left .32s cubic-bezier(.3,1.25,.5,1)}
+.today .tabbar .pill{box-shadow:0 3px 8px rgba(0,0,0,.08)}
+.tab{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:50px;color:var(--tabfg);z-index:1}
+.tab.on{color:var(--tabselfg)}
+.tab span{font-size:11px;line-height:1}
+.today .tab span{font-family:Quicksand;font-weight:600}
+.today .tab.on span{font-weight:700}
+.brand .tab span{font-family:Nunito;font-weight:800;font-size:11.5px}
+.tab .ic{transition:transform .25s}
+.tab.on .ic{transform:scale(1.08)}
+
+/* ───── Bücher ───── */
+.hhdr{position:absolute;left:20px;right:20px;top:71px;height:56px;display:flex;align-items:center;gap:12px;z-index:20}
+.hhdr .tw{flex:1;min-width:0}
+.ctl{display:flex;gap:6px;padding:6px;border-radius:28px;background:var(--tabbg);border:1px solid var(--tabb);box-shadow:var(--tabsh)}
+.today .ctl{-webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6)}
+.ctl b{width:44px;height:44px;display:grid;place-items:center;color:var(--acc);opacity:.85}
+.today.dark .ctl b,.brand.dark .ctl b{color:#fff}
+.brand.dark .ctl b{color:#FFF9EC}
+.cards{padding:151px 20px 132px;display:flex;flex-direction:column;gap:28px}
+.cover{position:relative;display:block;width:353px;height:353px;border-radius:30px;overflow:hidden;flex:none}
+.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.brand .cover{box-shadow:0 10px 24px -8px rgba(23,63,53,.30)}
+.brand.dark .cover{box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.28) 17%,rgba(0,0,0,0) 50%)}
+.ct{position:absolute;left:22px;top:22px;right:62px}
+.ct .t{font-size:21px;line-height:1.2;color:#fff;margin:0}
+.ct .st{font-size:15px;line-height:1.3;color:rgba(255,255,255,.94);margin-top:8px}
+.icol{position:absolute;top:14px;right:14px;display:flex;flex-direction:column;gap:8px}
+.bdg{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.bdg.sm{width:30px;height:30px}
+.bdg.md{width:32px;height:32px}
+.today .bdg.heart{background:rgba(0,0,0,.26)}
+.today .bdg.share{background:rgba(0,0,0,.30);box-shadow:0 3px 7px rgba(0,0,0,.14)}
+.today .bdg.lock{background:rgba(0,0,0,.54);border-color:rgba(255,255,255,.34)}
+.today .bdg.read{background:#103830;border-color:rgba(255,255,255,.46)}
+.today .bdg.neu{background:linear-gradient(135deg,#F68021,#B0C238);border-color:rgba(255,255,255,.46);font:700 10px/1 Quicksand}
+.brand .bdg{border:0;box-shadow:0 2px 6px rgba(23,63,53,.18)}
+.brand .bdg.heart,.brand .bdg.share{background:#FFF9EC;color:#173F35}
+.brand .bdg.lock{background:#173F35;color:#FFF9EC}
+.brand .bdg.read{background:#3F8F62;color:#FFF9EC}
+.brand .bdg.neu{background:#F27C67;color:#FFF9EC;font:800 11px/1 Nunito}
+.mins{position:absolute;left:22px;bottom:30px;display:inline-flex;align-items:center;gap:5px;padding:7px 10px;border-radius:999px;font-size:12px;line-height:1;color:#fff;background:rgba(255,255,255,.24);border:1px solid rgba(255,255,255,.24)}
+.today .mins{font-family:Quicksand;font-weight:700}
+.brand .mins{left:14px;bottom:16px;background:#FFF9EC;color:#173F35;border:0;font:600 12px/1 Inter;padding:7px 11px}
+.rim{position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1.4px rgba(255,255,255,.26),inset 0 -1px 0 1px rgba(0,0,0,.10)}
+.brand .rim{box-shadow:inset 0 0 0 3px #FFF9EC}
+.brand.dark .rim{box-shadow:inset 0 0 0 3px rgba(255,249,236,.9)}
+
+/* ───── Buchseite ───── */
+.det{padding:65px 0 132px}
+.det .cover{margin:0 auto}
+.back{position:absolute;top:14px;left:14px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#103830;background:rgba(255,255,255,.62);z-index:3}
+.brand .back{background:#FFF9EC;color:#173F35;box-shadow:0 2px 6px rgba(23,63,53,.18)}
+.dbody{padding:22px 16px 0;display:flex;flex-direction:column;gap:22px}
+.acts{display:flex;flex-direction:column;gap:12px}
+.btn{height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:17px;color:#fff;width:100%}
+.today .btn{font-family:Quicksand;font-weight:600;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#3D7D69 0%,#306E5C 54%,rgba(16,56,48,.98) 86%,#0A2E26 100%)}
+.today .btn.alt{border-color:rgba(255,255,255,.24);background:linear-gradient(135deg,#47876F 0%,#387864 60%,rgba(16,56,48,.94) 90%,#0D332B 100%)}
+.brand .btn{font-family:Nunito;font-weight:800;font-size:17.5px;background:#173F35;color:#FFF9EC}
+.brand .btn.alt{background:#FFF9EC;color:#173F35;box-shadow:inset 0 0 0 1.5px #173F35}
+.brand .btn.plus{background:#F7C948;color:#173F35}
+.brand.dark .btn{background:#FFF9EC;color:#173F35}
+.brand.dark .btn.alt{background:transparent;color:#FFF9EC;box-shadow:inset 0 0 0 1.5px rgba(255,249,236,.8)}
+.brand.dark .btn.plus{background:#F7C948;color:#173F35}
+.hint{font-size:13px;line-height:1.45;color:var(--sub);margin:-6px 0 0}
+.dt{font-size:22px;line-height:1.2;color:var(--ink);margin:0}
+.brand .dt{font-size:25px;color:var(--title)}
+.dst{font-size:15px;line-height:1.35;color:var(--sub);margin:8px 0 0}
+.dmeta{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--sub);margin-top:8px}
+.dmeta i{display:inline-flex;align-items:center;gap:4px;font-style:normal}
+.brand .dmeta{gap:6px;margin-top:12px}
+.brand .dmeta i{background:var(--card);border:1px solid var(--cardb);padding:6px 10px;border-radius:999px;font:600 12px/1 Inter;color:var(--title)}
+.dsec h4{font-size:17px;color:var(--ink);margin:0 0 8px}
+.dsec p{font-size:17px;line-height:1.45;color:var(--sub);margin:0}
+.brand .dsec{background:var(--card);border:1px solid var(--cardb);box-shadow:var(--cards);border-radius:28px;padding:18px 18px 20px}
+.brand .dsec h4{font-size:19px;color:var(--title);margin-bottom:8px}
+.brand .dsec p{font-size:15.5px;line-height:1.55;color:var(--sub)}
+.goal{display:flex;gap:9px;align-items:flex-start;margin-top:8px}
+.goal:first-of-type{margin-top:0}
+.goal .gk{flex:none;margin-top:4px;color:#B0C238}
+.brand .goal{margin-top:12px}
+.brand .goal .gk{margin-top:3px;width:20px;height:20px;border-radius:50%;background:#3F8F62;color:#FFF9EC;display:grid;place-items:center}
+.brand.dark .goal .gk{background:#A8D66D;color:#173F35}
+
+/* ───── Entdecken ───── */
+.disc{padding:79px 20px 132px;display:flex;flex-direction:column;gap:24px}
+.lhead .row{display:flex;align-items:center;gap:12px}
+.lhead .row .tw{flex:1}
+.lhead p{margin:6px 0 0;font-size:15px;line-height:1.35;color:var(--sub)}
+.bell{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#103830;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.88)}
+.brand .bell{background:#FFF9EC;color:#173F35;border:0;box-shadow:0 2px 8px rgba(23,63,53,.12)}
+.brand.dark .bell{background:#FFF9EC}
+.plusc{display:flex;align-items:center;gap:16px;padding:16px;width:100%}
+.plusc img{width:64px;height:64px;border-radius:15px;border:1px solid rgba(0,0,0,.08);flex:none}
+.plusc .tx{flex:1}
+.plusc .h{font-size:17px;color:var(--ink);line-height:1.25}
+.plusc .d{font-size:15px;color:var(--sub);line-height:1.3;margin-top:5px}
+.plusc .ch{color:var(--acc)}
+.brand .plusc{background:#173F35;border-color:#173F35;box-shadow:0 10px 24px -10px rgba(23,63,53,.5)}
+.brand .plusc .h{color:#FFF9EC;font-size:18px}
+.brand .plusc .d{color:rgba(255,249,236,.82);font-size:14px}
+.brand .plusc .ch{color:#F7C948}
+.brand.dark .plusc{background:#FFF9EC;border-color:#FFF9EC}
+.brand.dark .plusc .h{color:#173F35}.brand.dark .plusc .d{color:rgba(23,50,45,.76)}.brand.dark .plusc .ch{color:#173F35}
+.sech h3{font-size:20px;line-height:1.2;color:var(--ink);margin:0}
+.brand .sech h3{font-size:23px;color:var(--title)}
+.sech p{margin:6px 0 0;font-size:15px;line-height:1.35;color:var(--sub)}
+.brand .sech p{font-size:14.5px}
+.tsl{display:flex;flex-direction:column;gap:10px}
+.tsr{display:flex;align-items:center;gap:12px;padding:12px;width:100%}
+.tsr img{width:64px;height:64px;border-radius:12px;object-fit:cover;margin-left:2px;flex:none}
+.tsr .tx{flex:1;min-width:0}
+.tsr .h{font-size:15px;line-height:1.25;color:var(--ink)}
+.brand .tsr .h{font-size:15.5px;color:var(--title)}
+.tsr .d{font-size:12px;color:var(--sub);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stars{display:flex;align-items:center;gap:7px;margin-top:5px;font-size:12px;color:var(--acc)}
+.stars .s{display:flex;gap:1px;color:#FFB021}
+.brand .stars .s{color:#FF981C}
+.tsr .ch{color:var(--acc);opacity:.74}
+.car{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 58px;margin:0 -20px;scrollbar-width:none}
+.car::-webkit-scrollbar{display:none}
+.car>*{scroll-snap-align:center;flex:none}
+.lt{position:relative;width:236px;height:236px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.30);transition:transform .15s,opacity .15s}
+.lt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lt .gr{position:absolute;left:0;right:0;top:0;height:132px;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.34),rgba(0,0,0,0))}
+.lt .tt{position:absolute;left:14px;top:14px;right:44px;font-size:17px;line-height:1.2;color:#fff}
+.lt .icl{position:absolute;top:14px;right:14px}
+.brand .lt{border:0;border-radius:18px;box-shadow:0 8px 18px -8px rgba(23,63,53,.3)}
+.brand .lt::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 2.5px #FFF9EC;pointer-events:none}
+.pbs{gap:14px;padding:4px 93.5px}
+.pb{width:166px;height:270px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.pb .cv{position:relative;width:100%;aspect-ratio:1;border-radius:13px;overflow:hidden}
+.pb .cv img{width:100%;height:100%;object-fit:cover;display:block}
+.pb .ar{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(16,56,48,.92);border:1px solid rgba(255,255,255,.42)}
+.brand .pb .ar{background:#173F35;border:0}
+.pb .h{font-size:15px;line-height:1.22;color:var(--ink)}
+.brand .pb .h{font-size:14.5px;color:var(--title)}
+.pb .d{font-size:12px;line-height:1.3;color:var(--sub);margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pb .lb{margin-top:auto;display:flex;align-items:center;gap:5px;font-size:12px;color:var(--acc)}
+.fbl{display:flex;flex-direction:column;gap:12px}
+.fb{display:flex;align-items:center;gap:16px;padding:16px;width:100%}
+.fb img{width:92px;height:122px;border-radius:14px;object-fit:cover;flex:none}
+.fb .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.fb .lab{display:inline-flex;align-items:center;gap:5px;font-size:12px;letter-spacing:.2px;color:var(--acc);text-transform:uppercase}
+.brand .fb .lab{text-transform:none;letter-spacing:0;background:#F27C67;color:#FFF9EC;font:800 12.5px/1 Nunito;padding:6px 10px;border-radius:999px}
+.fb .h{font-size:20px;line-height:1.2;color:var(--ink)}
+.brand .fb .h{font-size:19px;color:var(--title)}
+.fb .d{font-size:15px;line-height:1.3;color:var(--sub)}
+.brand .fb .d{font-size:14px}
+.fb .m{display:flex;gap:10px;font-size:12px;color:var(--ter)}
+.fb .m i{display:inline-flex;align-items:center;gap:4px;font-style:normal}
+.fb .ch{color:var(--acc)}
+
+/* ───── Üben ───── */
+.prac{padding:79px 20px 132px;display:flex;flex-direction:column;gap:28px}
+.ph{padding:20px;display:flex;flex-direction:column;gap:18px}
+.ph .r1{display:flex;align-items:center;gap:12px}
+.ph .r1 .tw{flex:1}
+.ph .tabt{color:var(--title)}
+.pbtn{height:44px;min-width:44px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 11px;background:var(--well);color:var(--ter)}
+.pbtn.on{color:#007AFF}
+.today.dark .pbtn.on{color:#A8CFFF}
+.pbtn .aa{font:700 20px/1 Andika}
+.pbtn .sl{font-size:13px}
+.gp{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:5px;border-radius:17px;background:var(--well)}
+.gp button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;padding:8px 0;border-radius:12px;color:var(--ter)}
+.gp button.on{background:#fff;color:var(--ink);box-shadow:0 2px 3px rgba(0,0,0,.05)}
+.today.dark .gp button.on{background:#1c1c1e}
+.brand .gp button.on{background:#FFFDF7;box-shadow:0 2px 6px rgba(23,63,53,.10)}
+.brand.dark .gp button.on{background:#2A5A4D}
+.gp .n{font-size:22px;line-height:1}
+.gp .k{font-size:12px;line-height:1}
+.gp .bar{width:20px;height:3px;border-radius:2px;background:transparent;margin-top:2px}
+.gp button.on .bar{background:#007AFF}
+.today.dark .gp button.on .bar,.brand.dark .gp button.on .bar{background:#A8CFFF}
+.gdesc{font-size:13px;line-height:1.35;color:var(--sub);margin:0 3px}
+.pgrid{display:flex;flex-direction:column;gap:28px}
+.lt2{position:relative;width:353px;height:353px;border-radius:24px;overflow:hidden;flex:none;display:block}
+.lt2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lt2 .tt{position:absolute;left:22px;top:22px;right:22px;font:700 28px/1.25 Andika,sans-serif;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.75)}
+.brand .lt2{box-shadow:0 10px 24px -8px rgba(23,63,53,.30)}
+.brand .lt2::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 3px #FFF9EC;pointer-events:none}
+.sB{color:#0F3D8C}.sR{color:#A81F29}
+.dark .sB,.on-dark .sB{color:#8CCCFF}.dark .sR,.on-dark .sR{color:#FFADAB}
+
+/* ───── Profil ───── */
+.prof{padding:81px 20px 136px;display:flex;flex-direction:column;gap:26px;color:var(--pfink)}
+.prof .tabt{font-size:32px;color:var(--pfink)}
+.pcard{padding:18px;display:flex;flex-direction:column;gap:12px}
+.pcard .h{font-size:21px;line-height:1.2}
+.pcard .d{font-size:13px;line-height:1.45;color:var(--pfmut);margin:0 0 4px}
+.lbtn{height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font:600 17px/1 -apple-system,"SF Pro Text",Inter,sans-serif;width:100%}
+.lbtn.apple{background:#000;color:#fff}
+.dark .lbtn.apple{background:#fff;color:#000}
+.lbtn.google{background:#fff;color:#1f1f1f;box-shadow:inset 0 0 0 1px #747775}
+.lbtn.google img{width:24px;height:24px}
+.lbtn.mail{background:#103830;color:#fff}
+.today .lbtn.google,.today .lbtn.mail{font-family:Quicksand;font-weight:600}
+.brand .lbtn.google,.brand .lbtn.mail{font-family:Nunito;font-weight:800;font-size:16.5px}
+.brand .lbtn.mail{background:#173F35}
+.brand.dark .lbtn.mail{background:#FFF9EC;color:#173F35}
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:0 2px}
+.sh .t{font-size:32px;line-height:1.1}
+.sh .c{font-size:10px;color:var(--pfmut)}
+.ptabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ptab{min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:17px 3px;color:var(--pfink)}
+.ptab .n{font-size:12px}.ptab .c{font-size:10px;color:var(--pfmut);margin-top:-2px}
+.srows{padding:0 16px}
+.srow{display:flex;align-items:center;gap:12px;padding:17px 0}
+.srow+.srow,.srow+.fsp,.fsp+.srow{border-top:1px solid color-mix(in srgb,var(--pfink) 10%,transparent)}
+.glyph{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;color:var(--pfacc);background:color-mix(in srgb,var(--pfacc) 8%,transparent)}
+.glyph.warm{color:#B8803D;background:rgba(255,149,0,.10)}
+.brand .glyph{background:var(--pfbg)}
+.brand .glyph.warm{background:rgba(247,201,72,.22);color:#B8803D}
+.srow .tx{flex:1;min-width:0}
+.srow .h{font-size:13px}
+.srow .d{font-size:11px;color:var(--pfmut);margin-top:4px}
+.srow .acc{font-size:12px;color:var(--pfmut);display:flex;align-items:center;gap:4px}
+.stack{display:block;padding:17px 0}
+.stack .top{display:flex;align-items:center;gap:12px}
+.segc{margin-top:13px;display:grid;grid-template-columns:1fr 1fr;padding:2px;border-radius:9px;background:rgba(118,118,128,.12);height:32px}
+.segc span{display:grid;place-items:center;border-radius:7px;font:600 13px/1 -apple-system,Inter,sans-serif;color:var(--pfink)}
+.segc span.on{background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.12),0 3px 1px rgba(0,0,0,.04)}
+.dark .segc span.on{background:#636366}
+.brand .segc{background:var(--pfbg)}
+.brand .segc span.on{background:#173F35;color:#FFF9EC;box-shadow:none}
+.brand.dark .segc{background:rgba(255,249,236,.08)}
+.brand.dark .segc span.on{background:#FFF9EC;color:#173F35}
+.tog{width:51px;height:31px;border-radius:999px;background:rgba(120,120,128,.16);position:relative;flex:none}
+.tog::after{content:"";position:absolute;left:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15),0 3px 1px rgba(0,0,0,.06)}
+.dark .tog{background:rgba(120,120,128,.32)}
+.fsp{padding:17px 0;display:flex;flex-direction:column;gap:14px}
+.fsp .top{display:flex;align-items:center;gap:12px}
+.fsp .smp{padding:14px;border-radius:13px;background:var(--pfbg);font-size:22px;line-height:1.3}
+.today .fsp .smp{font-family:Quicksand;font-weight:700}
+.brand .fsp .smp{font-family:Nunito;font-weight:800;font-size:21px}
+.sld{position:relative;height:28px}
+.sld::before{content:"";position:absolute;left:0;right:0;top:12px;height:4px;border-radius:2px;background:rgba(120,120,128,.2)}
+.sld i{position:absolute;left:0;top:12px;height:4px;border-radius:2px;background:var(--pfacc);width:46%}
+.sld b{position:absolute;top:0;left:calc(46% - 14px);width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15),0 0 1px rgba(0,0,0,.2)}
+.pnote{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--pfmut);padding:0 2px;margin-top:-4px}
+.arow{display:flex;align-items:center;gap:12px;padding:15px;min-height:62px}
+.arow .h{flex:1;font-size:13px}
+.arow+.arow{border-top:1px solid color-mix(in srgb,var(--pfink) 10%,transparent)}
+.legal{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:11px;color:var(--pfmut)}
+.legal .ln{display:flex;gap:18px}
+.legal .mw{font-size:10px}
+.dark .lbtn.google{background:#131314;color:#e3e3e3;box-shadow:inset 0 0 0 1px #8e918f}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1 class="pt">Aha Kids App im Markendesign</h1>
+  <p class="meta">Entwurf v03 · 1. November 2026 · Basis: aktueller App-Stand vom 31. Oktober (GitHub main 198dda8, TestFlight 2026103101)</p>
+  <p class="intro">Gleiche App, gleiche Abläufe, gleiche Größen und Animationen. Neu sind nur Hintergrund, Schrift, Karten, Knöpfe, Farben und ein paar Texte. Links die App heute, rechts im Markendesign. Du kannst in den Handys tippen: ein Cover öffnet die Buchseite, die Leiste unten wechselt die Tabs, beide Handys scrollen mit.</p>
+
+  <div class="bar">
+    <div class="seg" id="scrSeg" role="group" aria-label="Bildschirm">
+      <button data-s="home" aria-pressed="true">Bücher</button>
+      <button data-s="detail">Buchseite</button>
+      <button data-s="locked">Buchseite gesperrt</button>
+      <button data-s="discover">Entdecken</button>
+      <button data-s="practice">Üben</button>
+      <button data-s="profile">Profil</button>
+    </div>
+    <div class="seg" id="modeSeg" role="group" aria-label="Darstellung">
+      <button data-m="light" aria-pressed="true">Hell</button>
+      <button data-m="dark">Dunkel</button>
+    </div>
+    <div class="seg which" id="whichSeg" role="group" aria-label="Version">
+      <button data-w="today">Heute</button>
+      <button data-w="brand" aria-pressed="true">Neu</button>
+    </div>
+  </div>
+
+  <div class="pair" id="pair" data-show="brand">
+    <div class="col today"><h2>Heute</h2><p>Blätterfoto, Glas-Karten, Quicksand</p><div class="fw"><div class="frame"><div class="app today" id="phT"></div></div></div></div>
+    <div class="col brand"><h2>Neu</h2><p>Mist mit Sonnenkreis und Ringen, Cremekarten, Nunito und Inter</p><div class="fw"><div class="frame"><div class="app brand" id="phB"></div></div></div></div>
+  </div>
+
+  <section class="sec">
+    <h3>Was sich ändert</h3>
+    <p class="lead">Jeder Punkt ist nur Optik. Die graue Zeile darunter sagt Michel, wo es im Code liegt.</p>
+    <ul class="chg">
+      <li><b>Hintergrund: Mist statt Blätterfoto</b>Ruhiges Mist (#EDF5EF) mit dem Sonnenkreis oben rechts und den zwei Ringen unten links, wie bei unseren Instagram-Posts. Die Cover leuchten darauf stärker. Im Dunkelmodus Forest mit Leaf-Kreis und Creme-Ringen.<span class="code">Nur Bilder tauschen: die 6 <code>MenuBackground*</code> Imagesets. Kein Code. Der Tageszeit-Schimmer (<code>moodOverlay</code>) kann bleiben.</span></li>
+      <li><b>Schrift: Nunito ExtraBold und Inter</b>Überschriften in Nunito ExtraBold, Texte in Inter, wie auf Website und Instagram. Beide Schriften sind schon in der App, das Profil nutzt sie bereits.<span class="code"><code>AhaTypography.swift</code>: bold → <code>Nunito-ExtraBold</code>, semibold → <code>Inter-SemiBold</code>, regular/medium → <code>Inter-Regular</code>. Lesetext im Reader (<code>AhaTypography.story</code>) und Andika im Üben-Bereich bleiben.</span></li>
+      <li><b>Karten: Creme statt Milchglas</b>Alle Menükarten (Plus, Top-Liste, Taschenbücher, Gratis, Üben-Kopf, Profil) werden cremefarben mit feinem Rand und weichem Schatten.<span class="code">Eine Stelle: <code>MenuCardStyle.swift</code> (<code>menuCardSurface</code>).</span></li>
+      <li><b>Buchcover: Titel wie heute, Abzeichen in Markenfarben</b>Titel und Untertitel stehen wie heute weiß auf dem dunklen Verlauf, nur in Nunito und Inter. Minuten als Creme-Pille, NEU in Coral, Schloss in Forest, dünner Creme-Rand. Größe und Rahmen bleiben gleich, die Hero-Animation ist nicht betroffen.<span class="code"><code>StoryCoverCard</code> (nur Schrift), <code>StoryMetricBadge</code>, <code>NewStoryBadge</code>, <code>BookAccessStatusIcon</code>, <code>BookReadBadge</code>, <code>StoryFavoriteButton</code>, <code>BookShareButton</code>, <code>StoryCoverDepthRim</code>, <code>LibraryBookTile</code>, <code>LearningBookCoverVisual</code>.</span></li>
+      <li><b>Tab-Leiste und Filterleiste in Creme</b>Der gewählte Tab als Forest-Pille mit cremefarbenem Symbol.<span class="code"><code>PhoneTabNavigationBar</code>, <code>PhoneTabNavigationButton</code>, <code>MenuTextPalette</code>, <code>HomeCatalogControlBar</code>.</span></li>
+      <li><b>Tab-Titel mit oranger Unterstreichung</b>Das Unterstreichungs-Element aus dem Markenhandbuch, einmal pro Bildschirm.<span class="code"><code>AppTabHeaderTitle</code>, <code>HomeHeaderView</code>, <code>LearningPracticeHeader</code>, <code>profileHeader</code>.</span></li>
+      <li><b>Buchseite: klare Knöpfe, Texte in Karten</b>„Lesen“ in Forest, „Hörgeschichte“ in Creme mit Rand, „Mit Aha Kids Plus lesen“ in Sonnengelb. „Worum es geht“ und „Das entdeckt dein Kind“ stehen in Cremekarten und sind so besser lesbar.<span class="code"><code>BookDetailActionButtonStyle</code>, <code>BookSubscriptionNavigationButton</code>, <code>bookSummary</code>, <code>backCoverSection</code>, <code>learningGoalsSection</code>.</span></li>
+      <li><b>Entdecken: Plus-Karte in Forest, Gratis in Coral</b>Die Abo-Karte fällt als einzige dunkle Karte auf. Das Gratis-Etikett ist die Coral-Pille unserer Instagram-Cover.<span class="code"><code>SubscriptionDiscoverCard</code>, <code>FreeBookPromotionTile</code>, <code>TopStoryStars</code>, <code>AmazonPaperbackTile</code>.</span></li>
+      <li><b>Markenfarben im Code</b>Forest #173F35 statt #103830, dazu Cream, Mist, Sun, Coral und Leaf als feste Werte.<span class="code"><code>AhaKidsBrand</code> in <code>AhaKidsApp.swift</code>.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <h3>Neue Texte</h3>
+    <p class="lead">Nur dort, wo die App heute Englisch oder sehr lang ist.</p>
+    <table class="tbl">
+      <thead><tr><th>Heute</th><th>Neu</th></tr></thead>
+      <tbody>
+        <tr><td>Free Book Promotion</td><td>Gratis-Geschichte</td></tr>
+        <tr><td>Unsere Top Stories</td><td>Am liebsten gelesen</td></tr>
+        <tr><td>Das sind die Stories, die euch am besten gefallen.</td><td>Diese Geschichten gefallen euch am besten.</td></tr>
+        <tr><td>Das sind unsere neuesten Geschichten zum Entdecken.</td><td>Unsere neuesten Geschichten.</td></tr>
+        <tr><td>Unsere Taschenbücher bei Amazon</td><td>Auch als Taschenbuch</td></tr>
+        <tr><td>Entdecke unsere Geschichten auch als gedruckte Bücher.</td><td>Unsere Geschichten gibt es auch gedruckt, bei Amazon.</td></tr>
+        <tr><td>Hier warten aktuelle Gratis-Geschichten auf dich. Schau öfter vorbei und entdecke, welche Bücher gerade frei sind.</td><td>Diese Geschichten sind gerade gratis. Schau öfter vorbei!</td></tr>
+        <tr><td>AhaKids Plus</td><td>Aha Kids Plus (unsere Schreibweise)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec">
+    <h3>Was bleibt</h3>
+    <ul class="keep">
+      <li>Aufbau aller Bildschirme, Reihenfolge, Tabs und Navigation</li>
+      <li>Größe und Position jeder Karte und jedes Covers</li>
+      <li>Alle Animationen, auch der Hero-Übergang vom Cover zur Buchseite</li>
+      <li>Der Reader und sein Lesetext</li>
+      <li>Andika und die Silbenfarben Blau und Rot im Üben-Bereich</li>
+      <li>Apple- und Google-Anmeldeknöpfe (Vorgaben von Apple und Google)</li>
+      <li>iPad-Layouts (gleiche Bausteine, sie ändern sich automatisch mit)</li>
+      <li>Alle Funktionen, Käufe und Daten</li>
+    </ul>
+  </section>
+
+  <p class="foot">Cover, Titel und Texte stammen aus dem aktuellen Katalog. Die Sterne bei „Am liebsten gelesen“ sind Beispielwerte, die echten Bewertungen liegen auf dem Server. Kein Code der App wurde geändert.</p>
+</main>
+
+<script src="books.js"></script>
+<script>
+"use strict";
+const B = Object.fromEntries(BOOKS.map(b => [b.id, b]));
+const S = { screen: "home", tab: "home", book: "sus29", dark: false, grade: 0, colored: true };
+
+/* ───── icons (24 grid, stroke = currentColor) ───── */
+const P = {
+  book: '<path d="M5 18.5V5.2C5 4 5.9 3 7.2 3H19v13.6H7.2c-1.2 0-2.2.9-2.2 1.9s1 1.9 2.2 1.9H19"/>',
+  bookF: '<path fill="currentColor" stroke="none" d="M7.2 2.2H19.8v15.2H7.4c-.8 0-1.4.5-1.4 1.1s.6 1.1 1.4 1.1h12.4v1.8H7.3c-1.9 0-3.1-1.3-3.1-2.9V5.2c0-1.7 1.3-3 3-3z"/>',
+  comp: '<circle cx="12" cy="12" r="9.2"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/>',
+  compF: '<circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z" stroke="var(--knock,#fff)" fill="var(--knock,#fff)"/>',
+  tbook: '<path d="M5 18.5V5.2C5 4 5.9 3 7.2 3H19v13.6H7.2c-1.2 0-2.2.9-2.2 1.9s1 1.9 2.2 1.9H19"/><path d="M9 7.5h6.5M9 11h4.5"/>',
+  tbookF: '<path fill="currentColor" stroke="none" d="M7.2 2.2H19.8v15.2H7.4c-.8 0-1.4.5-1.4 1.1s.6 1.1 1.4 1.1h12.4v1.8H7.3c-1.9 0-3.1-1.3-3.1-2.9V5.2c0-1.7 1.3-3 3-3z"/><path d="M9 7.3h6.5M9 10.8h4.5" stroke="var(--knock,#fff)"/>',
+  pers: '<circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="10" r="3.2"/><path d="M6.3 18.4c1.4-2 3.3-3.1 5.7-3.1s4.3 1.1 5.7 3.1"/>',
+  persF: '<circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="3.4" fill="var(--knock,#fff)" stroke="none"/><path d="M6 18.6c1.5-2.2 3.5-3.4 6-3.4s4.5 1.2 6 3.4" stroke="var(--knock,#fff)" stroke-width="2.4"/>',
+  chevL: '<path d="M15 5.5L8.5 12l6.5 6.5"/>',
+  chevR: '<path d="M9 5.5l6.5 6.5L9 18.5"/>',
+  heart: '<path d="M12 19.6s-7.4-4.4-7.4-9.9A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.4 2.5c0 5.5-7.4 9.9-7.4 9.9z"/>',
+  lock: '<rect x="5.5" y="10.4" width="13" height="10" rx="2.4" fill="currentColor" stroke="none"/><path d="M8.6 10.6V8a3.4 3.4 0 0 1 6.8 0v2.6" stroke-width="2.6"/>',
+  check: '<path d="M5 12.6l4.4 4.4L19 7.4"/>',
+  clock: '<circle cx="12" cy="12" r="8.6"/><path d="M12 7.6V12l2.9 2"/>',
+  bell: '<path fill="currentColor" stroke="none" d="M12 2.8a6.3 6.3 0 0 1 6.3 6.3v4.8l1.8 2.4c.4.6 0 1.4-.7 1.4H4.6c-.7 0-1.1-.8-.7-1.4l1.8-2.4V9.1A6.3 6.3 0 0 1 12 2.8zm-2.6 15.9h5.2a2.6 2.6 0 0 1-5.2 0z"/>',
+  filt: '<path d="M4 7h16M7 12h10M10 17h4"/>',
+  grid: '<rect x="4" y="4" width="6.6" height="6.6" rx="1.6"/><rect x="13.4" y="4" width="6.6" height="6.6" rx="1.6"/><rect x="4" y="13.4" width="6.6" height="6.6" rx="1.6"/><rect x="13.4" y="13.4" width="6.6" height="6.6" rx="1.6"/>',
+  sort: '<path d="M8 19.5V4.8M4.6 8.2L8 4.8l3.4 3.4M16 4.5v14.7M12.6 15.8l3.4 3.4 3.4-3.4"/>',
+  srch: '<circle cx="10.6" cy="10.6" r="6.2"/><path d="M15.2 15.2l4.6 4.6"/>',
+  share: '<path d="M12 3.6v11M8.2 7.4L12 3.6l3.8 3.8"/><path d="M8 10.4H6.2v10h11.6v-10H16"/>',
+  head: '<path d="M4.2 15.2v-3a7.8 7.8 0 0 1 15.6 0v3"/><rect x="3.4" y="13.8" width="4.6" height="6.8" rx="1.9" fill="currentColor"/><rect x="16" y="13.8" width="4.6" height="6.8" rx="1.9" fill="currentColor"/>',
+  books: '<rect x="3.6" y="4" width="4.4" height="16" rx="1.2" fill="currentColor" stroke="none"/><rect x="9.4" y="4" width="4.4" height="16" rx="1.2" fill="currentColor" stroke="none"/><path d="M15.4 5.3l3.7-1 3.4 14.7-3.7 1z" fill="currentColor" stroke="none"/>',
+  gift: '<path fill="currentColor" stroke="none" d="M3.5 9.4h17v3.4h-17zM4.8 13.8h6.4v7H6.3c-.8 0-1.5-.7-1.5-1.5zm8 0h6.4v5.5c0 .8-.7 1.5-1.5 1.5h-4.9zM11.2 9.4V7.3C9.7 5 6.4 4.7 6.4 6.9c0 1.6 2.6 2.5 4.8 2.5zm1.6 0c2.2 0 4.8-.9 4.8-2.5 0-2.2-3.3-1.9-4.8.4z"/>',
+  arUR: '<path d="M7.5 16.5l9-9M9.5 7.5h7v7"/>',
+  bookC: '<path fill="currentColor" stroke="none" d="M7.2 2.2H19.8v15.2H7.4c-.8 0-1.4.5-1.4 1.1s.6 1.1 1.4 1.1h12.4v1.8H7.3c-1.9 0-3.1-1.3-3.1-2.9V5.2c0-1.7 1.3-3 3-3z"/>',
+  globe: '<circle cx="12" cy="12" r="8.8"/><path d="M3.4 12h17.2M12 3.2c2.4 2.5 3.6 5.4 3.6 8.8s-1.2 6.3-3.6 8.8c-2.4-2.5-3.6-5.4-3.6-8.8s1.2-6.3 3.6-8.8z"/>',
+  alig: '<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>',
+  face: '<path d="M4 8.2V6.4C4 5 5 4 6.4 4h1.8M15.8 4h1.8C19 4 20 5 20 6.4v1.8M20 15.8v1.8c0 1.4-1 2.4-2.4 2.4h-1.8M8.2 20H6.4C5 20 4 19 4 17.6v-1.8M9 9.2v1.4M15 9.2v1.4M12.2 9.2v3.7h-1M9.2 15.6c1.6 1.3 4 1.3 5.6 0"/>',
+  tsize: '<path d="M3.4 18.2L7.7 7l4.3 11.2M5 14.2h5.4M13.6 18.2l3.1-7.7 3.1 7.7M14.8 15.6h3.8"/>',
+  bub: '<path d="M3.5 5.5h10.8a1.8 1.8 0 0 1 1.8 1.8v5.4a1.8 1.8 0 0 1-1.8 1.8H8.6l-3.4 2.8v-2.8H3.5a1.8 1.8 0 0 1-1.8-1.8V7.3a1.8 1.8 0 0 1 1.8-1.8z"/><path d="M18 9.6h2.4a1.8 1.8 0 0 1 1.8 1.8v5.2a1.8 1.8 0 0 1-1.8 1.8h-1.6v2.6l-3.2-2.6h-4.4a1.8 1.8 0 0 1-1.8-1.8"/>',
+  rest: '<path d="M19.2 12.4a7.2 7.2 0 1 1-2.3-5.6"/><path d="M19.6 4.4v4.8h-4.8"/>',
+  env: '<path fill="currentColor" stroke="none" d="M4.6 5.5h14.8c1 0 1.8.8 1.8 1.8v.4L12 13.2 2.8 7.7v-.4c0-1 .8-1.8 1.8-1.8zm-1.8 4.3L12 15.3l9.2-5.5v7.4c0 1-.8 1.8-1.8 1.8H4.6c-1 0-1.8-.8-1.8-1.8z"/>',
+  apple: '<path fill="currentColor" stroke="none" d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C6.9 7.5 5.4 8.4 4.6 9.9c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 3 2.4 1.2-.1 1.6-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.5-1-2.8-4.2zM14.1 5.7c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/>',
+  pers2: '<circle cx="9" cy="8.4" r="3"/><path d="M3.4 18.8c.8-3 3-4.5 5.6-4.5s4.8 1.5 5.6 4.5"/><circle cx="16.6" cy="9" r="2.5"/><path d="M16.2 14.4c2.3 0 4 1.3 4.6 3.9"/>',
+  heartF: '<path fill="currentColor" stroke="none" d="M12 20.4S3.8 15.6 3.8 9.7A4.9 4.9 0 0 1 12 6.4a4.9 4.9 0 0 1 8.2 3.3c0 5.9-8.2 10.7-8.2 10.7z"/>',
+  dl: '<path d="M12 4v11M7.8 10.8L12 15l4.2-4.2"/><path d="M5 19.6h14"/>',
+  updown: '<path d="M8.5 9.5L12 6l3.5 3.5M8.5 14.5L12 18l3.5-3.5"/>',
+  info: '<circle cx="12" cy="12" r="8.8"/><path d="M12 11v5.4M12 7.6v.2"/>'
+};
+const ic = (n, s = 18, w = 2.1, extra = "") => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${P[n]}</svg>`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const cov = id => `assets/cover_${id}.jpg`;
+
+/* syllables: each word starts blue, then alternates (ReadingPracticeText) */
+function syl(text, colored) {
+  if (!colored) return esc(text.replace(/\|/g, ""));
+  return text.split(" ").map(w => w.split("|").map((p, i) => `<span class="${i % 2 ? "sR" : "sB"}">${esc(p)}</span>`).join("")).join(" ");
+}
+
+/* background layer: today = the app's photo, brand = Mist + sun circle + two rings */
+function bgLayer(m) {
+  if (m === "today") return "";
+  const d = S.dark;
+  return `<svg viewBox="0 0 393 852" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <circle cx="372" cy="34" r="108" fill="${d ? "#3F8F62" : "#F7C948"}" opacity="${d ? .40 : .28}"/>
+    <circle cx="-36" cy="742" r="176" fill="none" stroke="${d ? "#FFF9EC" : "#3F8F62"}" stroke-width="2.2" opacity="${d ? .26 : .24}"/>
+    <circle cx="-36" cy="742" r="150" fill="none" stroke="${d ? "#FFF9EC" : "#3F8F62"}" stroke-width="2.2" opacity="${d ? .26 : .24}"/></svg>`;
+}
+const UL = `<svg class="ul" viewBox="0 0 100 11" preserveAspectRatio="none" aria-hidden="true"><path d="M3 6.6 Q52 2.4 97 5.6" stroke="#FF981C" stroke-width="4.2" stroke-linecap="round" fill="none" vector-effect="non-scaling-stroke"/></svg>`;
+const tabTitle = (txt, cls = "T") => `<h1 class="tabt ${cls}"><span>${txt}</span>${UL}</h1>`;
+
+/* ───── shared pieces ───── */
+function badges(b, m, { share = false, size = "" } = {}) {
+  const sz = size ? " " + size : "";
+  let h = "";
+  if (share) h += `<span class="bdg share${sz}">${ic("share", 19, 2.3)}</span>`;
+  h += `<span class="bdg heart${sz}">${ic("heart", 19, 2.3)}</span>`;
+  if (b.neu) h += `<span class="bdg neu${sz}">NEU</span>`;
+  if (!b.free) h += `<span class="bdg lock${sz}">${ic("lock", 19, 2.2)}</span>`;
+  return h;
+}
+function coverCard(b, m, { detail = false } = {}) {
+  return `<div class="cover"${detail ? "" : ` role="button" tabindex="0" data-book="${b.id}"`}>
+    <img src="${cov(b.id)}" alt="">
+    <div class="shade"></div>
+    <div class="ct"><p class="t T"><span>${esc(b.t)}</span></p>${b.s ? `<p class="st ${m === "today" ? "B" : "S"}"><span>${esc(b.s)}</span></p>` : ""}</div>
+    <div class="icol">${badges(b, m, { share: detail })}</div>
+    <span class="mins">${ic("clock", 13, 2.4)}${b.m} Min.</span>
+    <div class="rim"></div>
+  </div>`;
+}
+const T2 = (m, a, b) => (m === "brand" ? b : a);
+
+/* ───── Bücher ───── */
+function home(m) {
+  const list = BOOKS.map(b => coverCard(b, m)).join("");
+  return {
+    body: `<div class="cards">${list}</div>`,
+    fixed: `<div class="hhdr"><div class="tw" data-fade>${tabTitle("Bücher")}</div>
+      <div class="ctl"><b>${ic("filt", 20, 2.6)}</b><b>${ic("grid", 19, 2.3)}</b><b>${ic("sort", 19, 2.4)}</b><b>${ic("srch", 19, 2.6)}</b></div></div>`
+  };
+}
+
+/* ───── Buchseite ───── */
+function detail(m, id) {
+  const b = B[id];
+  const plus = T2(m, "AhaKids Plus", "Aha Kids Plus");
+  const acts = b.free
+    ? `<button class="btn">Lesen</button><button class="btn alt">${ic("head", 19, 2)}Hörgeschichte</button>`
+    : `<button class="btn plus">${ic("books", 19)}Mit ${plus} lesen</button><button class="btn alt">Vorschau lesen</button><button class="btn alt">${ic("head", 19, 2)}Hörgeschichte</button>`;
+  const hint = b.free ? "" : `<p class="hint B">Die Vorschau zeigt die ersten zwei Seiten. Mit ${plus} liest du diese Geschichte und alle weiteren Bücher der Bibliothek.</p>`;
+  const goals = (b.goals || []).map(g => `<div class="goal"><span class="gk">${m === "brand" ? ic("check", 12, 3.2) : `<svg class="ic" width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M6.8 12.4l3.4 3.4 7-7" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`}</span><p class="B">${esc(g)}</p></div>`).join("");
+  return {
+    body: `<div class="det">${coverCard(b, m, { detail: true })}
+      <div class="dbody">
+        <div class="acts">${acts}</div>${hint}
+        <div><p class="dt T">${esc(b.t)}</p><p class="dst B">${esc(b.s)}</p>
+          <div class="dmeta B"><i>${b.p} Seiten</i><i>${ic("clock", 12, 2.4)}${b.m} Min.</i></div></div>
+        ${b.back ? `<div class="dsec"><h4 class="${m === "brand" ? "T" : "S"}">Worum es geht</h4><p class="B">${esc(b.back).replace(/\n+/g, "<br><br>")}</p></div>` : ""}
+        ${goals ? `<div class="dsec"><h4 class="${m === "brand" ? "T" : "S"}">Das entdeckt dein Kind</h4>${goals}</div>` : ""}
+      </div></div>`,
+    fixed: ""
+  };
+}
+
+/* ───── Entdecken ───── */
+const STARS = { sus29: [4.9, 23], sus19: [4.8, 17], sus27: [4.7, 12] };
+function stars(r) {
+  let h = "";
+  for (let i = 1; i <= 5; i++) {
+    const f = r >= i ? "1" : r >= i - .5 ? ".5" : "0";
+    h += `<svg class="ic" width="11" height="11" viewBox="0 0 24 24"><defs><linearGradient id="g${i}${f}"><stop offset="${f === ".5" ? 50 : f === "1" ? 100 : 0}%" stop-color="currentColor"/><stop offset="0" stop-color="transparent"/></linearGradient></defs><path d="M12 2.6l2.9 6 6.5.8-4.8 4.5 1.2 6.5L12 17.2l-5.8 3.2 1.2-6.5-4.8-4.5 6.5-.8z" fill="${f === "0" ? "none" : f === "1" ? "currentColor" : `url(#g${i}${f})`}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+  }
+  return h;
+}
+function discover(m) {
+  const plus = T2(m, "AhaKids Plus", "Aha Kids Plus");
+  const top = ["sus29", "sus19", "sus27"].map(id => {
+    const b = B[id], [r, n] = STARS[id];
+    return `<button class="tsr card" data-book="${id}"><img src="${cov(id)}" alt="">
+      <div class="tx"><div class="h T">${esc(b.t)}</div><div class="d B">${esc(b.s)}</div>
+      <div class="stars"><span class="s">${stars(r)}</span><span class="${m === "brand" ? "S" : "T"}">${String(r).replace(".", ",")} (${n})</span></div></div>
+      ${b.free ? "" : `<span class="bdg lock sm">${ic("lock", 14, 2.2)}</span>`}<span class="ch">${ic("chevR", 16, 2.8)}</span></button>`;
+  }).join("");
+  const latest = ["sus29", "sus27", "sus25", "sus24", "sus22", "sus20"].map(id => {
+    const b = B[id];
+    return `<button class="lt" data-book="${id}"><img src="${cov(id)}" alt=""><div class="gr"></div>
+      <div class="tt T">${esc(b.t)}</div>
+      ${b.free ? "" : `<span class="icl"><span class="bdg lock md">${ic("lock", 15, 2.2)}</span></span>`}</button>`;
+  }).join("");
+  const pbs = BOOKS.filter(b => b.amz).slice(0, 6).map(b => `<div class="pb card"><div class="cv"><img src="${cov(b.id)}" alt=""><span class="ar">${ic("arUR", 14, 2.8)}</span></div>
+      <div><div class="h T">${esc(b.t)}</div><div class="d B">${esc(b.s)}</div></div>
+      <div class="lb ${m === "brand" ? "S" : "T"}">${ic("bookC", 13)}Taschenbuch</div></div>`).join("");
+  const free = BOOKS.filter(b => b.free).map(b => `<button class="fb card" data-book="${b.id}"><img src="${cov(b.id)}" alt="">
+      <div class="tx"><span class="lab T">${m === "brand" ? "Gratis-Geschichte" : ic("gift", 13) + "Free Book Promotion"}</span>
+      <div class="h T">${esc(b.t)}</div><div class="d B">${esc(b.s)}</div>
+      <div class="m S"><i>${ic("clock", 12, 2.4)}${b.m} Min.</i><i>Jetzt kostenlos</i></div></div>
+      <span class="ch">${ic("chevR", 18, 2.8)}</span></button>`).join("");
+  const sec = (h, p) => `<div class="sech"><h3 class="T">${h}</h3><p class="B">${p}</p></div>`;
+  return {
+    body: `<div class="disc">
+      <div class="lhead"><div class="row"><div class="tw">${tabTitle("Entdecken")}</div><span class="bell">${ic("bell", 19)}</span></div>
+        <p class="B">Neue Geschichten, Lesefreude und aktuelle Gratis-Aktionen.</p></div>
+      <button class="plusc card"><img src="assets/plus_icon.png" alt=""><div class="tx"><div class="h T">Die ganze Bibliothek</div><div class="d B">Alle aktuellen und zukünftigen Geschichten mit einem Abo.</div></div><span class="ch">${ic("chevR", 18, 2.9)}</span></button>
+      ${sec(T2(m, "Unsere Top Stories", "Am liebsten gelesen"), T2(m, "Das sind die Stories, die euch am besten gefallen.", "Diese Geschichten gefallen euch am besten."))}
+      <div class="tsl">${top}</div>
+      ${sec("Neu erschienen", T2(m, "Das sind unsere neuesten Geschichten zum Entdecken.", "Unsere neuesten Geschichten."))}
+      <div class="car" data-focus>${latest}</div>
+      ${sec(T2(m, "Unsere Taschenbücher bei Amazon", "Auch als Taschenbuch"), T2(m, "Entdecke unsere Geschichten auch als gedruckte Bücher.", "Unsere Geschichten gibt es auch gedruckt, bei Amazon."))}
+      <div class="car pbs">${pbs}</div>
+      ${sec("Aktuell kostenlos", T2(m, "Hier warten aktuelle Gratis-Geschichten auf dich. Schau öfter vorbei und entdecke, welche Bücher gerade frei sind.", "Diese Geschichten sind gerade gratis. Schau öfter vorbei!"))}
+      <div class="fbl">${free}</div>
+    </div>`,
+    fixed: ""
+  };
+}
+
+/* ───── Üben ───── */
+const GDESC = ["Ihr lest ab|wech|selnd.", "Kur|ze Sät|ze. Viel Bild.", "Et|was mehr Text.", "Län|ge|re Sät|ze und klei|ne Ab|sät|ze."];
+function practice(m) {
+  const c = S.colored;
+  const gp = [0, 1, 2, 3].map(g => `<button class="${S.grade === g ? "on" : ""}" data-grade="${g}">
+      ${g === 0 ? `${ic("pers2", 21, 2)}<span class="k T">${syl("Zu|sam|men", c)}</span>` : `<span class="n T">${syl(g + ".", c)}</span><span class="k T">${syl("Klas|se", c)}</span>`}
+      <span class="bar"></span></button>`).join("");
+  const tiles = ["sus29", "sus27", "sus25", "sus24", "sus19"].map(id => {
+    const b = B[id];
+    const t = syl(b.lt || b.t, c);
+    return `<button class="lt2" data-book="${id}"><img src="${cov(id)}" alt=""><div class="shade"></div>
+      <div class="tt on-dark">${t}</div></button>`;
+  }).join("");
+  return {
+    body: `<div class="prac">
+      <div class="ph card"><div class="r1"><div class="tw">${tabTitle(syl("Ü|ben", c))}</div>
+        <span class="pbtn">${ic("grid", 19, 2.2)}</span>
+        <button class="pbtn ${c ? "on" : ""}" data-syl><span class="aa">${syl("A|a", c)}</span><span class="sl S">${syl("Sil|ben", c)}</span></button></div>
+        <div class="gp">${gp}</div>
+        <p class="gdesc B">${syl(GDESC[S.grade], c)}</p></div>
+      <div class="pgrid">${tiles}</div>
+    </div>`,
+    fixed: ""
+  };
+}
+
+/* ───── Profil (already Nunito + Inter today) ───── */
+function profile(m) {
+  const row = (icn, h, d, acc, warm) => `<div class="srow"><span class="glyph ${warm ? "warm" : ""}">${ic(icn, 18, 1.9)}</span><div class="tx"><div class="h PS">${h}</div>${d ? `<div class="d PB">${d}</div>` : ""}</div>${acc}</div>`;
+  return {
+    body: `<div class="prof">
+      ${tabTitle("Dein Profil", "PH")}
+      <div class="pcard card"><div class="h PH">Deine Geschichten warten.</div>
+        <p class="d PB">Melde dich an und nimm deine Lieblingsgeschichten überallhin mit.</p>
+        <span class="lbtn apple">${ic("apple", 18)}Mit Apple anmelden</span>
+        <span class="lbtn google"><img src="assets/google.png" alt="">Mit Google anmelden</span>
+        <span class="lbtn mail">${ic("env", 18)}Mit E-Mail anmelden</span></div>
+      <div class="sh"><span class="t PH">Meine Bücher</span><span class="c PB">Deine Geschichtenwelt</span></div>
+      <div class="ptabs"><span class="ptab card">${ic("heart", 22, 2)}<span class="n PS">Favoriten</span><span class="c PB">0 Bücher</span></span>
+        <span class="ptab card">${ic("dl", 22, 2)}<span class="n PS">Downloads</span><span class="c PB">0 Bücher</span></span></div>
+      <div class="sh"><span class="t PH">Einstellungen</span><span class="c PB">So passt es für dich</span></div>
+      <div class="card srows">
+        ${row("globe", "Sprache", "Sprache der Geschichten", `<span class="acc PB">Deutsch</span>`)}
+        <div class="srow stack" style="display:block"><div class="top"><span class="glyph">${ic("alig", 18, 1.9)}</span><div class="tx"><div class="h PS">Lesetext links / rechts</div><div class="d PB">Position beim Lesen im Querformat</div></div></div>
+          <div class="segc"><span class="on">Links</span><span>Rechts</span></div></div>
+        ${row("face", "Elternbereich schützen", "Mit Face ID oder Touch ID öffnen", `<span class="tog"></span>`)}
+        <div class="fsp"><div class="top"><span class="glyph">${ic("tsize", 18, 1.9)}</span><div class="h PS" style="flex:1;font-size:13px">Schriftgröße</div><span class="PB" style="font-size:11px;color:var(--pfmut)">22 pt</span></div>
+          <div class="smp">Jede Geschichte beginnt mit einem kleinen Abenteuer.</div><div class="sld"><i></i><b></b></div></div>
+        ${row("bell", "Mitteilungen", "Neues aus deiner Geschichtenwelt", `<span class="tog"></span>`, true)}
+      </div>
+      <div class="pnote PB">${ic("check", 11, 2.6)}Deine Einstellungen werden automatisch gemerkt.</div>
+      <div class="sh"><span class="t PH">Für dich da</span></div>
+      <div class="card"><div class="arow"><span class="glyph">${ic("bub", 18, 1.8)}</span><span class="h PS">Feedback &amp; Hilfe</span>${ic("chevR", 12, 2.4)}</div>
+        <div class="arow"><span class="glyph">${ic("rest", 18, 1.9)}</span><span class="h PS">Käufe wiederherstellen</span>${ic("chevR", 12, 2.4)}</div></div>
+      <div class="legal PB"><div class="ln"><span>Impressum</span><span>Datenschutz</span><span>Nutzungsbedingungen</span></div><div class="mw">Mit ♥ für kleine Entdecker gemacht.</div></div>
+    </div>`,
+    fixed: ""
+  };
+}
+
+/* ───── tab bar ───── */
+const TABS = [["home", "Bücher", "book", "bookF"], ["discover", "Entdecken", "comp", "compF"], ["practice", "Üben", "tbook", "tbookF"], ["profile", "Profil", "pers", "persF"]];
+function tabbar(m) {
+  const idx = TABS.findIndex(t => t[0] === S.tab);
+  const w = (369 - 2 - 12) / 4;
+  return `<nav class="tabbar" aria-label="Tabs"><span class="pill" style="left:${6 + idx * w}px;width:${w}px"></span>
+    ${TABS.map(([k, label, i0, i1]) => {
+      const on = S.tab === k, ret = on && S.screen === "detail";
+      const icon = ret ? ic("chevL", 21, 2.6) : ic(on ? i1 : i0, 21, 2);
+      return `<button class="tab ${on ? "on" : ""}" data-tab="${k}">${icon}<span>${ret ? "Zurück" : label}</span></button>`;
+    }).join("")}</nav>`;
+}
+
+/* ───── mount ───── */
+const phones = { today: document.getElementById("phT"), brand: document.getElementById("phB") };
+function view(m) {
+  if (S.screen === "detail") return detail(m, S.book);
+  return { home, discover, practice, profile }[S.screen](m);
+}
+function render(keepScroll) {
+  for (const m of ["today", "brand"]) {
+    const el = phones[m];
+    const prev = keepScroll ? (el.querySelector(".scr") || {}).scrollTop || 0 : 0;
+    el.className = `app ${m}${S.dark ? " dark" : ""}`;
+    const v = view(m);
+    el.innerHTML = `<div class="bgl">${bgLayer(m)}</div><div class="scr">${v.body}</div>${v.fixed}${tabbar(m)}
+      <div class="chrome"><div class="status"><span>9:41</span><span class="r">
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5l2.4-2.6a3.4 3.4 0 0 0-4.8 0zM3.6 6.9a6.2 6.2 0 0 1 8.8 0l1.5-1.6a8.4 8.4 0 0 0-11.8 0zM.6 3.7a10.6 10.6 0 0 1 14.8 0L16.8 2.2a12.6 12.6 0 0 0-17.6 0z" fill="currentColor"/></svg>
+      <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.6" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2.2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="currentColor" opacity=".45"/></svg></span></div>
+      <div class="island"></div><div class="homeind"></div></div>`;
+    const scr = el.querySelector(".scr");
+    scr.scrollTop = prev;
+    scr.addEventListener("scroll", () => onScroll(m), { passive: true });
+    el.querySelectorAll(".car[data-focus]").forEach(c => { c.addEventListener("scroll", () => focusCar(c), { passive: true }); requestAnimationFrame(() => { c.scrollLeft = 0; focusCar(c); }); });
+    fade(el);
+  }
+  document.querySelectorAll("#scrSeg button").forEach(b => b.setAttribute("aria-pressed", String(segKey() === b.dataset.s)));
+  document.querySelectorAll("#modeSeg button").forEach(b => b.setAttribute("aria-pressed", String((b.dataset.m === "dark") === S.dark)));
+}
+function segKey() { return S.screen === "detail" ? (B[S.book].free ? "detail" : "locked") : S.screen; }
+function fade(el) {
+  const t = el.querySelector("[data-fade]");
+  if (t) t.style.opacity = Math.max(0, 1 - el.querySelector(".scr").scrollTop / 40);
+}
+let syncing = false;
+function onScroll(m) {
+  const a = phones[m], o = phones[m === "today" ? "brand" : "today"];
+  fade(a);
+  if (syncing) return;
+  syncing = true;
+  const as = a.querySelector(".scr"), os = o.querySelector(".scr");
+  const r = as.scrollTop / Math.max(1, as.scrollHeight - as.clientHeight);
+  os.scrollTop = r * (os.scrollHeight - os.clientHeight);
+  fade(o);
+  requestAnimationFrame(() => (syncing = false));
+}
+function focusCar(c) {
+  const mid = c.getBoundingClientRect().left + c.clientWidth / 2;
+  c.querySelectorAll(".lt").forEach(t => {
+    const r = t.getBoundingClientRect(), d = Math.min(Math.abs(r.left + r.width / 2 - mid) / 236, 1);
+    t.style.transform = `scale(${1 - d * .15})`; t.style.opacity = 1 - d * .48;
+  });
+}
+function go(screen, extra = {}) { Object.assign(S, { screen }, extra); render(false); }
+
+document.addEventListener("click", e => {
+  const app = e.target.closest(".app");
+  if (!app) return;
+  const t = e.target.closest("[data-book],[data-tab],[data-back],[data-grade],[data-syl]");
+  if (!t) return;
+  if (t.dataset.back !== undefined) return go(S.tab);
+  if (t.dataset.tab) {
+    if (t.dataset.tab === S.tab && S.screen === "detail") return go(S.tab);
+    S.tab = t.dataset.tab; return go(S.tab);
+  }
+  if (t.dataset.book) { if (S.tab === "practice" || S.tab === "profile") return; return go("detail", { book: t.dataset.book }); }
+  if (t.dataset.grade) { S.grade = +t.dataset.grade; return render(true); }
+  if (t.dataset.syl !== undefined) { S.colored = !S.colored; return render(true); }
+});
+document.addEventListener("keydown", e => {
+  if ((e.key === "Enter" || e.key === " ") && e.target.matches(".app [data-book]")) { e.preventDefault(); e.target.click(); }
+});
+document.getElementById("scrSeg").addEventListener("click", e => {
+  const s = e.target.closest("button")?.dataset.s; if (!s) return;
+  if (s === "detail") { S.tab = "home"; return go("detail", { book: "sus29" }); }
+  if (s === "locked") { S.tab = "home"; return go("detail", { book: "sus19" }); }
+  S.tab = s; go(s);
+});
+document.getElementById("modeSeg").addEventListener("click", e => {
+  const m = e.target.closest("button")?.dataset.m; if (!m) return;
+  S.dark = m === "dark"; render(true);
+});
+document.getElementById("whichSeg").addEventListener("click", e => {
+  const w = e.target.closest("button")?.dataset.w; if (!w) return;
+  document.getElementById("pair").dataset.show = w;
+  document.querySelectorAll("#whichSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.w === w)));
+  size();
+});
+
+/* scale the phones to the window */
+function size() {
+  const narrow = innerWidth <= 900;
+  const availH = Math.max(560, innerHeight - 150);
+  const availW = narrow ? Math.min(innerWidth - 32, 440) : (Math.min(innerWidth, 1180) - 40 - 36) / 2;
+  const s = Math.min(1, availH / 876, availW / 417);
+  document.querySelectorAll(".fw").forEach(w => {
+    w.style.width = 417 * s + "px"; w.style.height = 876 * s + "px";
+    w.querySelector(".frame").style.transform = `scale(${s})`;
+  });
+}
+addEventListener("resize", size);
+const h = location.hash.slice(1).split("-");
+if (h.includes("dunkel")) S.dark = true;
+const start = { buecher: "home", buchseite: "detail", gesperrt: "locked", entdecken: "discover", ueben: "practice", profil: "profile" };
+const first = h.find(x => start[x]);
+size(); render(false);
+if (first) document.querySelector(`#scrSeg [data-s=${start[first]}]`).click();
+</script>
+</body>
+</html>
